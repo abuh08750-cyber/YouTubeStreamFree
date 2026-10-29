@@ -1,1 +1,190 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTubeStreamFree</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #080b12;
+      color: #f5f7ff;
+    }
+    header {
+      padding: 20px;
+      border-bottom: 1px solid #242a39;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo { font-size: 21px; font-weight: bold; }
+    .logo span { color: #ff424f; }
+    .hero {
+      padding: 65px 20px 45px;
+      text-align: center;
+      max-width: 760px;
+      margin: auto;
+    }
+    .tag {
+      color: #a8b4ff;
+      background: #171d35;
+      padding: 9px 13px;
+      border-radius: 30px;
+      font-size: 13px;
+    }
+    h1 {
+      font-size: clamp(36px, 9vw, 58px);
+      line-height: 1.08;
+      margin: 25px 0 18px;
+    }
+    h1 span { color: #8d7bff; }
+    p {
+      color: #aab2c5;
+      line-height: 1.7;
+    }
+    .btn {
+      display: inline-block;
+      margin: 15px 5px;
+      padding: 14px 20px;
+      border-radius: 10px;
+      background: #7765ff;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border: 0;
+      cursor: pointer;
+    }
+    .secondary {
+      background: #171c29;
+      border: 1px solid #30384b;
+    }
+    .panel {
+      max-width: 700px;
+      margin: 15px auto 45px;
+      padding: 22px;
+      width: calc(100% - 32px);
+      background: #111622;
+      border: 1px solid #293044;
+      border-radius: 18px;
+    }
+    label { display: block; margin: 17px 0 8px; }
+    input, select {
+      width: 100%;
+      padding: 13px;
+      background: #090d16;
+      border: 1px solid #343b50;
+      border-radius: 9px;
+      color: white;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 14px;
+      padding: 0 16px 40px;
+      max-width: 850px;
+      margin: auto;
+    }
+    .feature {
+      padding: 20px;
+      background: #111622;
+      border: 1px solid #293044;
+      border-radius: 14px;
+    }
+    .feature h3 { margin-top: 8px; }
+    #message { font-size: 14px; }
+    footer {
+      text-align: center;
+      padding: 25px;
+      border-top: 1px solid #242a39;
+      color: #8c95aa;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">YouTube<span>Stream</span>Free</div>
+    <a class="btn secondary" href="#studio">Open Studio</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <span class="tag">CREATOR STREAMING STUDIO</span>
+      <h1>Your Videos.<br><span>Your Live Stream.</span></h1>
+      <p>
+        Manage your prerecorded video streaming workflow
+        from one simple dashboard. Built for creators.
+      </p>
+      <a class="btn" href="#studio">Get Started →</a>
+      <a class="btn secondary" href="#features">Explore Features</a>
+    </section>
+
+    <section class="panel" id="studio">
+      <h2>🎬 Creator Studio</h2>
+      <p>Prepare your video stream below.</p>
+
+      <label for="title">Stream title</label>
+      <input id="title" type="text"
+        placeholder="Enter your stream title">
+
+      <label for="visibility">Stream visibility</label>
+      <select id="visibility">
+        <option>Private</option>
+        <option>Unlisted</option>
+        <option>Public</option>
+      </select>
+
+      <label for="video">Choose a video</label>
+      <input id="video" type="file" accept="video/*">
+
+      <button class="btn" onclick="prepareStream()">
+        Prepare Stream
+      </button>
+      <p id="message">
+        Demo only: streaming is not connected yet.
+      </p>
+    </section>
+
+    <section class="features" id="features">
+      <div class="feature">
+        <h3>📹 Video Setup</h3>
+        <p>Choose a video and prepare its stream details.</p>
+      </div>
+      <div class="feature">
+        <h3>📡 YouTube Live</h3>
+        <p>YouTube account connection will be added later.</p>
+      </div>
+      <div class="feature">
+        <h3>📊 Stream Dashboard</h3>
+        <p>A simple starting point for managing your streams.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    YouTubeStreamFree · Creator Streaming Platform
+    <p>Streaming features are not connected yet.</p>
+  </footer>
+
+  <script>
+    function prepareStream() {
+      const title = document.getElementById("title").value.trim();
+      const video = document.getElementById("video").files[0];
+      const message = document.getElementById("message");
+
+      if (!title || !video) {
+        message.textContent = "Please enter a title and choose a video.";
+        return;
+      }
+
+      message.textContent =
+        "Video selected: " + video.name +
+        ". Demo ready — actual YouTube streaming is not connected yet.";
+    }
+  </script>
+</body>
+  </html>
+  
